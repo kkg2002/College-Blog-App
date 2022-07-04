@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+  <head>
+    <link rel="stylesheet" href="/blog.css">
+  </head>
+
+  <div style="margin: 50px;">
+    <h1 style="text-align:center; margin:40px">All Blogs</h1>
+     
+    <div class="container">
+      <div class="row">
+        <% for(let i in blogs){ %>
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+
+
+            <div class="card">
+              <div class="contain">
+                <img class="card-img" src=<%=blogs[i].img %> alt="Bologna">
+                <div class="top-left">
+                  <a href="/blog" class="btn btn-light btn-sm">
+                    <%= blogs[i].type %>
+                  </a>
+                </div>
+  
+              </div>
+              
+
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= blogs[i].title %>
+                </h4>
+                <small class="text-muted cat">
+                  <i class="far fa-clock text-info"></i>
+                  <%=String(blogs[i].date.getHours())+":"+String(blogs[i].date.getMinutes())+":"+String(blogs[i].date.getSeconds())%>
+                </small>
+                <p class="card-text">
+                  <%- blogs[i].content.slice(0,100).replace(/\r\n\r\n/g, "<br>" )+". . . " %>
+                </p>
+                <a href="/read:<%= blogs[i]._id %>" class="btn btn-info">Read More</a>
+              </div>
+              <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                <div class="views">
+                  <%=" Date: "+String(blogs[i].date.getDate())+" /"+month[blogs[i].date.getMonth()]+"/"+
+                    String(blogs[i].date.getFullYear())%>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+
+    </div>
+  </div>
+
+<%- include('partials/footer') %>

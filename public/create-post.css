@@ -1,0 +1,71 @@
+body{
+
+    background-color: rgb(46, 33, 157);
+    
+}
+.create h3{
+    text-align: center;
+    font-size: 40px;
+    margin: 10px;
+}
+.compose{
+    text-align: center;
+    font-size: 40px;
+    
+    color: rgb(12, 3, 60);
+    margin: 10px;
+}
+.create form{
+    margin: 0% 10%;
+    padding: 10px;
+    background-color: rgb(21, 84, 244);
+}
+
+.create input{
+    text-align: center;
+}
+.create div{
+    text-align: center;
+}
+.create option{
+    text-align: center;
+    font-size: 20px;
+}
+.create select {
+    width: 250px;
+    margin: 10px;
+    height: 30px;
+    font-size: 20px;
+}
+.create select:focus {
+    width: 250px;
+    height: 30px;
+    /* width: auto; */
+}
+#content{
+    background-color: rgb(77, 77, 172);
+    border-radius: 20px;
+    padding: 20px;
+    resize: none;
+    width: 90%;
+    color: white;
+}
+#submit{
+    background-color: blueviolet;
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 35px;
+    /* padding-bottom: 1%; */
+}
+#title{
+    width: 90%;
+    padding: 10px;
+}
+
+.create p{
+    padding-top: 5px;
+    font-size: 30px;
+    font-style: oblique;
+    text-align: center;
+}

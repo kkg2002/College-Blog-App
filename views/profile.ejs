@@ -1,0 +1,103 @@
+<%- include('partials/header') %>
+
+  <head>
+    <link rel="stylesheet" href="/blog.css">
+  </head>
+
+  <div style="margin: 50px;">
+
+<h1 style="color: rgb(251, 247, 3); margin:50px 0px 10px 0px; text-align:center">User details</h1>
+        <div class=" container">
+            <div class="row">
+                <div class="flex-container">
+
+                    <div class="flex-child magenta">
+                        <div>
+                            <div class="card" style="margin: 10px;">
+                                <div class="card-body">
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Name : </b>
+                                        <%= user_data.name %>
+                                    </p>
+
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Username :</b>
+                                        <%= user_data.username%>
+                                    </p>
+
+                                    <% if(user==user_data.username) {%>
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Email :</b>
+                                        <%= user_data.email %>
+                                    </p>
+                                    
+                                    <% } %>
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Articles :</b>
+                                        <%= user_data.blog.length %>
+                                    </p>
+                                    <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
+                                        <b>Comment :</b>
+                                        <%= user_data.comment.length %>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <h1 style="text-align:center; margin:40px"><%= user_data.username %> all articles </h1>
+     
+    <div class="container">
+      <div class="row">
+        <% for(let i in blogs){ %>
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+
+
+
+            <div class="card">
+              <div class="contain">
+                <img class="card-img" src=<%=blogs[i].img %> alt="Bologna">
+                <div class="top-left">
+                  <a href="/blog" class="btn btn-light btn-sm">
+                    <%= blogs[i].type %>
+                  </a>
+                </div>
+  
+              </div>
+              
+
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= blogs[i].title %>
+                </h4>
+                <small class="text-muted cat">
+                  <i class="far fa-clock text-info"></i>
+                  <%=String(blogs[i].date.getHours())+":"+String(blogs[i].date.getMinutes())+":"+String(blogs[i].date.getSeconds())%>
+                </small>
+                <p class="card-text">
+                  <%- blogs[i].content.slice(0,100).replace(/\r\n\r\n/g, "<br>" )+". . . " %>
+                </p>
+                <a href="/read:<%= blogs[i]._id %>" class="btn btn-info">Read More</a>
+              </div>
+              <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                <div class="views">
+                  <%=" Date: "+String(blogs[i].date.getDate())+" /"+month[blogs[i].date.getMonth()]+"/"+
+                    String(blogs[i].date.getFullYear())%>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </div>
+
+    </div>
+  </div>
+
+<%- include('partials/footer') %>
